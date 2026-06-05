@@ -1187,7 +1187,12 @@ function Footer() {
           </div>
         </div>
         <div className="col-span-6 md:col-span-3 font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em] space-y-2 break-all">
-          <div>adityaprakash06official@gmail.com</div>
+          <a
+            href="mailto:adityaprakash06official@gmail.com"
+            className="hover:text-red transition-colors underline decoration-thick block"
+          >
+            adityaprakash06official@gmail.com
+          </a>
         </div>
         <div className="col-span-6 md:col-span-3 font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em] space-y-2 md:text-right">
           <div>Mumbai · Pune</div>
@@ -1195,11 +1200,13 @@ function Footer() {
         </div>
       </div>
       <div className="border-t-[3px] border-ink mt-8 sm:mt-10 pt-4 font-mono-c text-[9px] sm:text-[10px] uppercase tracking-[0.3em] flex flex-col sm:flex-row justify-between gap-4">
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <span>v0.1 · Pre-launch</span>
+          <span className="text-ink/30">•</span>
           <Link to="/terms" className="hover:text-red transition-colors underline decoration-thick">
             Terms of Service
           </Link>
+          <span className="text-ink/30">•</span>
           <Link
             to="/privacy"
             className="hover:text-red transition-colors underline decoration-thick"
