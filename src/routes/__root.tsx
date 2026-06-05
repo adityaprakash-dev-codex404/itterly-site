@@ -92,6 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "itterly is India's community-first intercity ride-sharing network. Aadhaar verified, insured, women-safe. Join the waitlist.",
       },
       { name: "author", content: "itterly" },
+      { name: "google-site-verification", content: "4fl9wc_MtveTVOrtYpVofNbmxBSxwDP69CHywr58Jew" },
       { name: "robots", content: "index, follow" },
       {
         name: "keywords",
