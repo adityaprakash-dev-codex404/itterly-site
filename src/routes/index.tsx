@@ -577,13 +577,13 @@ function TrustStack() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.07 }}
-                className="group w-full h-full border-fat border-ink bg-paper p-5 sm:p-6 relative overflow-hidden transition-all duration-300 ease-out hover:-translate-x-2 hover:-translate-y-2 hover:shadow-block cursor-default select-none"
+                className="group w-full h-full border-fat border-ink bg-paper p-5 sm:p-6 relative overflow-hidden transition-all duration-300 ease-out md:hover:-translate-x-2 md:hover:-translate-y-2 md:hover:shadow-block cursor-default select-none"
               >
-                <div className="absolute top-2 right-3 font-display text-7xl sm:text-8xl text-ink/5 select-none transition-all duration-300 group-hover:text-ink/10 group-hover:scale-105">
+                <div className="absolute top-2 right-3 font-display text-7xl sm:text-8xl text-ink/5 select-none transition-all duration-300 md:group-hover:text-ink/10 md:group-hover:scale-105">
                   {l.n}
                 </div>
                 <div className="flex items-start justify-between relative">
-                  <div className="w-9 h-9 bg-ink text-paper flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <div className="w-9 h-9 bg-ink text-paper flex items-center justify-center transition-transform duration-300 md:group-hover:scale-110 md:group-hover:rotate-6">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="font-mono-c text-[10px] uppercase tracking-[0.3em] text-ink/60">
@@ -595,7 +595,7 @@ function TrustStack() {
                 {(i === 0 || i === 4) && (
                   <div className="absolute bottom-4 right-4 flex items-center justify-center">
                     <span className="absolute inline-flex h-5 w-5 rounded-full bg-red opacity-75 animate-ping" />
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-red transition-transform duration-300 group-hover:scale-125" />
+                    <span className="relative inline-flex rounded-full h-5 w-5 bg-red transition-transform duration-300 md:group-hover:scale-125" />
                   </div>
                 )}
               </motion.div>
