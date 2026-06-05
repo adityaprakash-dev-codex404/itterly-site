@@ -211,17 +211,6 @@ function AnimatedNumber({ value, className }: { value: number; className?: strin
 
 function Landing() {
   const waitlist = useWaitlistCount();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -255,15 +244,15 @@ function Landing() {
       <Toaster />
       <Nav />
       <CounterStrip count={waitlist.count} />
-      <Hero count={waitlist.count} onSignup={waitlist.refresh} isMobile={isMobile} />
+      <Hero count={waitlist.count} onSignup={waitlist.refresh} />
       <Ticker />
-      <TrustStack isMobile={isMobile} />
+      <TrustStack />
       <FareCalculator />
-      <Compare isMobile={isMobile} />
-      <Thesis isMobile={isMobile} />
-      <How isMobile={isMobile} />
+      <Compare />
+      <Thesis />
+      <How />
       <AdminConsole />
-      <WhyNow isMobile={isMobile} />
+      <WhyNow />
       <Waitlist count={waitlist.count} onSignup={waitlist.refresh} />
       <Footer />
     </main>
@@ -283,7 +272,6 @@ function Nav() {
           <img
             src={logoImg}
             alt="itterly logo"
-            decoding="async"
             className="h-8 w-8 object-contain rounded-md border-[3px] border-ink shadow-[3px_3px_0_0_rgba(0,0,0,1)] bg-paper"
           />
           <span className="font-display">
@@ -333,21 +321,13 @@ function CounterStrip({ count }: { count: number | null }) {
 
 /* ---------------------------------- HERO ---------------------------------- */
 
-function Hero({
-  count,
-  onSignup,
-  isMobile,
-}: {
-  count: number | null;
-  onSignup: () => void;
-  isMobile: boolean;
-}) {
+function Hero({ count, onSignup }: { count: number | null; onSignup: () => void }) {
   return (
     <section id="top" className="relative grain border-b-[5px] border-ink">
       <div className="grid grid-cols-12 gap-0 md:min-h-[88vh]">
         <div className="col-span-12 md:col-span-7 px-5 sm:px-6 md:px-12 pt-8 md:pt-16 pb-12 md:pb-16 relative">
           <motion.div
-            initial={isMobile ? false : { opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-block bg-ink text-paper px-3 py-1 font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em]"
@@ -356,7 +336,7 @@ function Hero({
           </motion.div>
 
           <motion.h1
-            initial={isMobile ? false : { opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
             className="font-display text-[12vw] sm:text-[10vw] md:text-[7.5vw] lg:text-[7vw] leading-[0.85] mt-6 uppercase tracking-tighter"
@@ -424,8 +404,7 @@ function Hero({
           <motion.img
             src={hero1}
             alt="itterly ride match preview"
-            decoding="async"
-            initial={isMobile ? false : { opacity: 0, y: 30, rotate: -3 }}
+            initial={{ opacity: 0, y: 30, rotate: -3 }}
             animate={{ opacity: 1, y: 0, rotate: -3 }}
             transition={{ duration: 0.7, delay: 0.25 }}
             className="absolute top-[14%] right-[6%] w-[55%] max-w-[320px] border-fat border-ink shadow-block z-10"
@@ -433,8 +412,7 @@ function Hero({
           <motion.img
             src={hero2}
             alt="itterly driver network preview"
-            decoding="async"
-            initial={isMobile ? false : { opacity: 0, y: 30, rotate: 4 }}
+            initial={{ opacity: 0, y: 30, rotate: 4 }}
             animate={{ opacity: 1, y: 0, rotate: 4 }}
             transition={{ duration: 0.7, delay: 0.4 }}
             className="absolute bottom-[12%] left-[12%] w-[48%] max-w-[280px] border-fat border-ink shadow-block-red z-10"
@@ -564,7 +542,7 @@ function SectionLabel({ n, label }: { n: string; label: string }) {
 
 /* ----------------------------- TRUST STACK -------------------------------- */
 
-function TrustStack({ isMobile }: { isMobile: boolean }) {
+function TrustStack() {
   return (
     <section id="trust" className="px-5 sm:px-6 md:px-12 py-16 sm:py-24 border-b-[5px] border-ink">
       <div className="font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em] text-red mb-4">
@@ -590,8 +568,8 @@ function TrustStack({ isMobile }: { isMobile: boolean }) {
           return (
             <motion.div
               key={l.n}
-              initial={isMobile ? false : { opacity: 0, y: 25 }}
-              whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: (i % 3) * 0.07 }}
               className={`col-span-12 sm:col-span-6 lg:col-span-4 border-fat border-ink bg-paper p-5 sm:p-6 relative overflow-hidden ${offset}`}
@@ -724,7 +702,7 @@ function FareCalculator() {
 
 /* ------------------------------- COMPARE ---------------------------------- */
 
-function Compare({ isMobile }: { isMobile: boolean }) {
+function Compare() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const max = Math.max(...COMPARE.map((c) => c.costIndex));
@@ -754,8 +732,8 @@ function Compare({ isMobile }: { isMobile: boolean }) {
               </div>
               <div className="flex-1 h-8 sm:h-10 bg-bone border-thick border-ink relative overflow-hidden">
                 <motion.div
-                  initial={isMobile ? false : { width: 0 }}
-                  animate={isMobile ? { width: `${pct}%` } : (inView ? { width: `${pct}%` } : { width: 0 })}
+                  initial={{ width: 0 }}
+                  animate={inView ? { width: `${pct}%` } : { width: 0 }}
                   transition={{ duration: 0.9, delay: 0.1 + i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
                   className={`h-full ${c.color === "red" ? "bg-red" : "bg-ink"}`}
                 />
@@ -819,7 +797,7 @@ function Compare({ isMobile }: { isMobile: boolean }) {
 
 /* -------------------------------- THESIS ---------------------------------- */
 
-function Thesis({ isMobile }: { isMobile: boolean }) {
+function Thesis() {
   return (
     <section className="bg-red text-paper border-b-[5px] border-ink grain">
       <div className="px-5 sm:px-6 md:px-12 py-16 sm:py-24 md:py-28 grid grid-cols-12 gap-4 sm:gap-6">
@@ -827,8 +805,8 @@ function Thesis({ isMobile }: { isMobile: boolean }) {
           The Thesis
         </div>
         <motion.h3
-          initial={isMobile ? false : { opacity: 0, x: -30 }}
-          whileInView={isMobile ? undefined : { opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
           className="col-span-12 md:col-span-10 font-display text-2xl sm:text-4xl md:text-6xl uppercase leading-[0.95]"
@@ -846,7 +824,7 @@ function Thesis({ isMobile }: { isMobile: boolean }) {
 
 /* --------------------------------- HOW ------------------------------------ */
 
-function How({ isMobile }: { isMobile: boolean }) {
+function How() {
   return (
     <section id="how" className="px-5 sm:px-6 md:px-12 py-16 sm:py-24 border-b-[5px] border-ink">
       <SectionLabel n="05" label="How It Works" />
@@ -854,8 +832,8 @@ function How({ isMobile }: { isMobile: boolean }) {
         {STEPS.map((s, i) => (
           <motion.div
             key={s.n}
-            initial={isMobile ? false : { opacity: 0, y: 30 }}
-            whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className={`col-span-12 md:col-span-4 border-thick border-ink p-6 sm:p-8 relative ${i === 1 ? "bg-ink text-paper" : "bg-paper"
@@ -970,7 +948,7 @@ function AdminConsole() {
 
 /* -------------------------------- WHY NOW --------------------------------- */
 
-function WhyNow({ isMobile }: { isMobile: boolean }) {
+function WhyNow() {
   const items = [
     { k: "APR 2025", v: "Maharashtra carpooling law passes. The legal door is open." },
     { k: "UPI", v: "₹0 friction fare splitting. Already in every phone." },
@@ -984,8 +962,8 @@ function WhyNow({ isMobile }: { isMobile: boolean }) {
         {items.map((it, i) => (
           <motion.div
             key={it.k}
-            initial={isMobile ? false : { opacity: 0, y: 20 }}
-            whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.06 }}
             className={`col-span-12 sm:col-span-6 lg:col-span-3 border-fat border-ink bg-paper p-5 sm:p-6 ${i % 2 === 1 ? "lg:translate-y-6" : ""
