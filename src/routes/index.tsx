@@ -860,9 +860,9 @@ function AdminConsole() {
   const seats = 3;
   const split = calcItterly(exampleKm, seats);
   const members = [
-    { name: "ADITYA PRAKASH.", verified: true, amount: split },
-    { name: "DIVYANSH K.", verified: true, amount: split },
     { name: "SHRUTI S.", verified: true, amount: split },
+    { name: "ADITYA PRAKASH.", verified: true, amount: split },
+    { name: "DIVYANSH.", verified: true, amount: split },
   ];
   return (
     <section
