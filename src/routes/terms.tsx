@@ -10,6 +10,11 @@ export const Route = createFileRoute("/terms")({
         content: "Terms of Service for itterly — community-first intercity ride-sharing.",
       },
     ],
+    links: [
+      { rel: "canonical", href: "https://itterly.in/terms" },
+      { rel: "alternate", href: "https://itterly.in/terms", hrefLang: "x-default" },
+      { rel: "alternate", href: "https://itterly.in/terms", hrefLang: "en-in" },
+    ],
   }),
   component: Terms,
 });

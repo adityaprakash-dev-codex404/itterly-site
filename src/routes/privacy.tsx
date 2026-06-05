@@ -10,6 +10,11 @@ export const Route = createFileRoute("/privacy")({
         content: "Privacy Policy for itterly — community-first intercity ride-sharing.",
       },
     ],
+    links: [
+      { rel: "canonical", href: "https://itterly.in/privacy" },
+      { rel: "alternate", href: "https://itterly.in/privacy", hrefLang: "x-default" },
+      { rel: "alternate", href: "https://itterly.in/privacy", hrefLang: "en-in" },
+    ],
   }),
   component: Privacy,
 });

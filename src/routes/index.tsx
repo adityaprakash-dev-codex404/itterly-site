@@ -39,6 +39,11 @@ export const Route = createFileRoute("/")({
         content: "Verified intercity carpooling for Bharat. Reserve your seat.",
       },
     ],
+    links: [
+      { rel: "canonical", href: "https://itterly.in/" },
+      { rel: "alternate", href: "https://itterly.in/", hrefLang: "x-default" },
+      { rel: "alternate", href: "https://itterly.in/", hrefLang: "en-in" },
+    ],
   }),
   component: Landing,
 });
@@ -226,7 +231,7 @@ function Landing() {
     "@type": "Organization",
     "name": "itterly",
     "url": "https://itterly.in",
-    "logo": "https://itterly-site.vercel.app/favicon.png",
+    "logo": "https://itterly.in/favicon.png",
     "email": "adityaprakash06official@gmail.com",
     "sameAs": ["https://github.com/adityaprakash-dev-codex404/itterly-site"],
   };
