@@ -20,7 +20,8 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import heroCar from "@/assets/hero-car.png";
+import hero1 from "@/assets/hero-1.png";
+import hero2 from "@/assets/hero-2.png";
 import logoImg from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
@@ -401,20 +402,20 @@ function Hero({ count, onSignup }: { count: number | null; onSignup: () => void 
             }}
           />
           <motion.img
-            src={heroCar}
-            alt="Intercity highway"
+            src={hero1}
+            alt="itterly ride match preview"
             initial={{ opacity: 0, y: 30, rotate: -3 }}
             animate={{ opacity: 1, y: 0, rotate: -3 }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="absolute top-[14%] right-[6%] w-[55%] max-w-[320px] border-fat border-ink grayscale contrast-125 shadow-block z-10"
+            className="absolute top-[14%] right-[6%] w-[55%] max-w-[320px] border-fat border-ink shadow-block z-10"
           />
           <motion.img
-            src={heroCar}
-            alt=""
+            src={hero2}
+            alt="itterly driver network preview"
             initial={{ opacity: 0, y: 30, rotate: 4 }}
             animate={{ opacity: 1, y: 0, rotate: 4 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="absolute bottom-[12%] left-[12%] w-[48%] max-w-[280px] border-fat border-ink grayscale contrast-125 shadow-block-red z-10"
+            className="absolute bottom-[12%] left-[12%] w-[48%] max-w-[280px] border-fat border-ink shadow-block-red z-10"
           />
           <div className="absolute bottom-[8%] right-[10%] w-8 h-8 bg-ink z-20" />
           <div className="absolute top-[6%] left-[40%] w-16 h-16 diag-stripes opacity-60" />
