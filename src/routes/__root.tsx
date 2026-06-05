@@ -38,21 +38,33 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-8">
+      <div className="max-w-xl text-center">
+        <h1 className="text-2xl font-bold tracking-tight text-foreground font-display">
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
+        
+        <div className="mt-6 border-thick border-red bg-red/5 p-4 text-left font-mono text-xs text-red-600 max-h-60 overflow-auto shadow-block">
+          <div className="font-bold border-b border-red/20 pb-1 mb-2">RUN-TIME ERROR:</div>
+          <div className="whitespace-pre-wrap break-words">{error.message || String(error)}</div>
+          {error.stack && (
+            <details className="mt-2 cursor-pointer opacity-70 hover:opacity-100">
+              <summary className="font-bold">Show Stack Trace</summary>
+              <pre className="mt-1 whitespace-pre overflow-x-auto text-[10px]">{error.stack}</pre>
+            </details>
+          )}
+        </div>
+
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 cursor-pointer"
           >
             Try again
           </button>
