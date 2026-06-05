@@ -92,6 +92,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "itterly is India's community-first intercity ride-sharing network. Aadhaar verified, insured, women-safe. Join the waitlist.",
       },
       { name: "author", content: "itterly" },
+      { name: "robots", content: "index, follow" },
+      {
+        name: "keywords",
+        content:
+          "carpooling india, intercity ride sharing, itterly, mumbai pune carpool, bangalore chennai ride sharing, trust carpool india, aadhaar verified carpool, travel sharing",
+      },
       { property: "og:title", content: "itterly — Speed. Trust. Intercity." },
       {
         property: "og:description",
@@ -99,9 +105,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Community-first intercity ride-sharing for Bharat. Verified. Insured. Affordable.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://itterly-site.vercel.app/favicon.png" },
+      { property: "og:site_name", content: "itterly" },
+      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "itterly — Speed. Trust. Intercity." },
+      {
+        name: "twitter:description",
+        content:
+          "itterly is India's community-first intercity ride-sharing network. Aadhaar verified, insured, women-safe.",
+      },
+      { name: "twitter:image", content: "https://itterly-site.vercel.app/favicon.png" },
     ],
     links: [
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

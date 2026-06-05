@@ -21,6 +21,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import heroCar from "@/assets/hero-car.png";
+import logoImg from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -209,8 +210,36 @@ function AnimatedNumber({ value, className }: { value: number; className?: strin
 
 function Landing() {
   const waitlist = useWaitlistCount();
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "itterly",
+    "url": "https://itterly.in",
+    "description":
+      "itterly is India's community-first intercity ride-sharing network. Aadhaar verified, insured, women-safe — engineered for the way Bharat actually moves.",
+  };
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "itterly",
+    "url": "https://itterly.in",
+    "logo": "https://itterly-site.vercel.app/favicon.png",
+    "email": "adityaprakash06official@gmail.com",
+    "sameAs": ["https://github.com/adityaprakash-dev-codex404/itterly-site"],
+  };
+
   return (
     <main className="min-h-screen bg-paper text-ink overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <Toaster />
       <Nav />
       <CounterStrip count={waitlist.count} />
@@ -237,9 +266,16 @@ function Nav() {
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-10 py-3 sm:py-4 gap-3">
         <a
           href="#top"
-          className="font-display text-xl sm:text-2xl tracking-tight shrink-0 lowercase"
+          className="flex items-center gap-3 font-display text-xl sm:text-2xl tracking-tight shrink-0 lowercase hover:opacity-90 transition-opacity"
         >
-          itterly<span className="text-red">.</span>
+          <img
+            src={logoImg}
+            alt="itterly logo"
+            className="h-8 w-8 object-contain rounded-md border-[3px] border-ink shadow-[3px_3px_0_0_rgba(0,0,0,1)] bg-paper"
+          />
+          <span className="font-display">
+            itterly<span className="text-red">.</span>
+          </span>
         </a>
         <nav className="hidden md:flex gap-8 font-mono-c text-xs uppercase tracking-widest">
           <a href="#trust" className="skew-hover">
@@ -1052,8 +1088,8 @@ function Waitlist({ count, onSignup }: { count: number | null; onSignup: () => v
                       type="button"
                       onClick={() => setRole(r)}
                       className={`font-mono-c text-xs sm:text-sm uppercase tracking-widest py-3 border-thick transition-all cursor-pointer ${role === r
-                          ? "bg-red text-paper border-paper shadow-[4px_4px_0_0_var(--paper)]"
-                          : "bg-paper text-ink border-paper hover:bg-bone"
+                        ? "bg-red text-paper border-paper shadow-[4px_4px_0_0_var(--paper)]"
+                        : "bg-paper text-ink border-paper hover:bg-bone"
                         }`}
                     >
                       {r}
@@ -1143,16 +1179,22 @@ function Footer() {
     <footer className="px-5 sm:px-6 md:px-12 py-10 sm:py-12 bg-paper">
       <div className="grid grid-cols-12 gap-6 items-end">
         <div className="col-span-12 md:col-span-6">
-          <div className="font-display text-5xl sm:text-6xl md:text-8xl lowercase">
-            itterly<span className="text-red">.</span>
+          <div className="flex items-center gap-4 mb-3">
+            <img
+              src={logoImg}
+              alt="itterly logo"
+              className="h-12 w-12 object-contain rounded-lg border-[3px] border-ink shadow-[3px_3px_0_0_rgba(0,0,0,1)] bg-paper"
+            />
+            <div className="font-display text-5xl sm:text-6xl md:text-8xl lowercase leading-none">
+              itterly<span className="text-red">.</span>
+            </div>
           </div>
           <div className="font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-2">
             itterly / © {new Date().getFullYear()} All Rights Reserved
           </div>
         </div>
         <div className="col-span-6 md:col-span-3 font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em] space-y-2 break-all">
-          <div>hello@itterly.in</div>
-          <div>press@itterly.in</div>
+          <div>adityaprakash06official@gmail.com</div>
         </div>
         <div className="col-span-6 md:col-span-3 font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em] space-y-2 md:text-right">
           <div>Mumbai · Pune</div>
