@@ -1179,15 +1179,8 @@ function Footer() {
     <footer className="px-5 sm:px-6 md:px-12 py-10 sm:py-12 bg-paper">
       <div className="grid grid-cols-12 gap-6 items-end">
         <div className="col-span-12 md:col-span-6">
-          <div className="flex items-center gap-4 mb-3">
-            <img
-              src={logoImg}
-              alt="itterly logo"
-              className="h-12 w-12 object-contain rounded-lg border-[3px] border-ink shadow-[3px_3px_0_0_rgba(0,0,0,1)] bg-paper"
-            />
-            <div className="font-display text-5xl sm:text-6xl md:text-8xl lowercase leading-none">
-              itterly<span className="text-red">.</span>
-            </div>
+          <div className="font-display text-5xl sm:text-6xl md:text-8xl lowercase mb-3">
+            itterly<span className="text-red">.</span>
           </div>
           <div className="font-mono-c text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-2">
             itterly / © {new Date().getFullYear()} All Rights Reserved
