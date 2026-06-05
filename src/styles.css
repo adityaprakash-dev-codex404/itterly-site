@@ -45,7 +45,8 @@
   --paper: oklch(0.962 0.012 88);
   --bone: oklch(0.91 0.014 85);
   --ink: oklch(0.14 0 0);
-  --red: oklch(0.7 0.19 144); /* Uber Eats Green */
+  --red: oklch(0.7 0.19 144);
+  /* Uber Eats Green */
   --cobalt: oklch(0.36 0.14 264);
 
   --radius: 0px;
@@ -94,6 +95,7 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+
   .font-mono-c {
     font-family: var(--font-mono);
   }
@@ -101,6 +103,7 @@
   .grain {
     position: relative;
   }
+
   .grain::after {
     content: "";
     position: absolute;
@@ -115,6 +118,7 @@
     border-width: 3px;
     border-color: var(--ink);
   }
+
   .border-fat {
     border-width: 5px;
     border-color: var(--ink);
@@ -123,10 +127,12 @@
   .ticker {
     animation: ticker 38s linear infinite;
   }
+
   @keyframes ticker {
     from {
       transform: translateX(0);
     }
+
     to {
       transform: translateX(-50%);
     }
@@ -135,6 +141,7 @@
   .shadow-block {
     box-shadow: 8px 8px 0 0 var(--ink);
   }
+
   .shadow-block-red {
     box-shadow: 8px 8px 0 0 var(--red);
   }
@@ -142,6 +149,7 @@
   .skew-hover {
     transition: transform 120ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
+
   .skew-hover:hover {
     transform: skewX(-6deg) translateY(-2px);
   }
