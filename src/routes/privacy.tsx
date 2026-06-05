@@ -108,7 +108,14 @@ function Privacy() {
               </h2>
               <p>
                 You may request access to, correction of, or deletion of your profile and data
-                history at any time by sending an email request to **hello@itterly.in**.
+                history at any time by sending an email request to{" "}
+                <a
+                  href="mailto:adityaprakash06official@gmail.com"
+                  className="hover:text-red transition-colors underline decoration-thick"
+                >
+                  adityaprakash06official@gmail.com
+                </a>
+                .
               </p>
             </section>
           </div>
