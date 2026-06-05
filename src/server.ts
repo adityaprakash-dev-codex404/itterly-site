@@ -1,3 +1,7 @@
+if (process.env.VERCEL) {
+  process.env.NODE_ENV = "production";
+}
+
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
